@@ -8,7 +8,7 @@ ENV ACCEPT_EULA Y
 ENV MSSQL_PID standard
 ENV MSSQL_SA_PASSWORD sasa
 ENV MSSQL_TCP_PORT 1433
-
+ENV NOTVISIBLE "in users profile"
 
 RUN ln -snf /usr/share/zoneinfo/Asia/Taipei /etc/localtime && echo Asia/Taipei > /etc/timezone
 
@@ -43,5 +43,6 @@ RUN echo 'exec supervisord -c /etc/supervisor/supervisord.conf' >> /startup.sh
 
 RUN chmod +x /startup.sh
 
+EXPOSE  22
 EXPOSE  8000
 CMD ["/startup.sh"]

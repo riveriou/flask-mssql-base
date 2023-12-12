@@ -38,6 +38,8 @@ RUN echo 'command=/usr/sbin/sshd -D' >> /etc/supervisor/conf.d/supervisord.conf
 
 RUN echo '#!/bin/sh' >> /startup.sh
 RUN echo '/opt/mssql/bin/sqlservr' >> /startup.sh
+RUN echo '/usr/sbin/sshd -D' >> /startup.sh
+RUN echo 'python3 app.py' >> /startup.sh
 
 RUN echo 'exec supervisord -c /etc/supervisor/supervisord.conf' >> /startup.sh
 

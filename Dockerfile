@@ -12,6 +12,10 @@ ENV NOTVISIBLE "in users profile"
 
 RUN ln -snf /usr/share/zoneinfo/Asia/Taipei /etc/localtime && echo Asia/Taipei > /etc/timezone
 
+RUN apt-get update
+RUN apt-get update --fix-missing
+RUN apt-get install -y curl wget vim nano lsof net-tools dialog software-properties-common less unzip gpg-agent less unzip apt-utils
+RUN apt-get install -y openssh-server supervisor python3 python3-pip
 
 WORKDIR /data
 ADD . /data
@@ -21,10 +25,6 @@ RUN /data/flask.sh
 RUN /data/sshd.sh
 
 RUN rm -r /data
-
-RUN apt-get install -y supervisor 
-RUN apt-get clean
-RUN rm -rf /var/lib/apt/lists/*    
 
 RUN echo "[supervisord] " >> /etc/supervisor/conf.d/supervisord.conf
 RUN echo "nodaemon=true" >> /etc/supervisor/conf.d/supervisord.conf

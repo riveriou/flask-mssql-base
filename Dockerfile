@@ -18,7 +18,7 @@ ADD . /data
 RUN chmod 755 /data/*
 RUN /data/mssql.sh
 RUN /data/flask.sh
-RUN pip install --no-cache-dir -r requirements.txt
+
 RUN rm -r /data
 
 RUN apt-get install -y supervisor

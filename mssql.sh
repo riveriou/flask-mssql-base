@@ -1,8 +1,5 @@
 #!/bin/bash
 
-apt-get update
-apt-get update --fix-missing
-apt-get install -y curl wget vim nano lsof net-tools dialog software-properties-common less unzip gpg-agent less unzip apt-utils
 
 curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 #Download appropriate package for the OS version
@@ -56,5 +53,5 @@ rm -rf /tmp/*
                                                                                 
 # Remove files from apt cache                                                   
 #                                                                               
-# apt-get clean                                                                   
-# rm -rf /var/lib/apt/lists/*       
+apt-get clean                                                                   
+rm -rf /var/lib/apt/lists/*       

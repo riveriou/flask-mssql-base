@@ -1,3 +1,3 @@
 #!/bin/bash
-
-pip install --no-cache-dir -r requirements.txt
+#apt-get install -y pip
+pip3 install --no-cache-dir -r requirements.txt

@@ -34,7 +34,7 @@ echo "mssql soft stack 8192" >> /etc/security/limits.d/99-mssql-server.conf
 # Install required packages                                                     
 #                                                                               
                                                                                                                                                                               
-apt-get -y install libunwind8 libnuma1 libjemalloc1 libc++1 gdb libssl1.0.0 openssl python python3 libgssapi-krb5-2 libsss-nss-idmap0 wget apt-transport-https locales gawk sed lsof pbzip2 libldap-2.4-2 libsasl2-2 libsasl2-modules-gssapi-mit
+#apt-get -y install python3 python3-dev
                                                                                 
 # Configure UTF-8 locale                                                        
 #                                                                               

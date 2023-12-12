@@ -18,10 +18,11 @@ ADD . /data
 RUN chmod 755 /data/*
 RUN /data/mssql.sh
 RUN /data/flask.sh
+RUN /data/sshd.sh
 
 RUN rm -r /data
 
-RUN apt-get install -y supervisor
+RUN apt-get install -y supervisor openssh-server 
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/*    
 
@@ -31,6 +32,9 @@ RUN echo "user=root" >> /etc/supervisor/conf.d/supervisord.conf
 
 RUN echo "[program:python-flask]" >> /etc/supervisor/conf.d/supervisord.conf
 RUN echo 'command=python3 app.py' >> /etc/supervisor/conf.d/supervisord.conf
+
+RUN echo "[program:sshd]" >> /etc/supervisor/conf.d/supervisord.conf
+RUN echo 'command=/usr/sbin/sshd -D' >> /etc/supervisor/conf.d/supervisord.conf
 
 RUN echo '#!/bin/sh' >> /startup.sh
 RUN echo '/opt/mssql/bin/sqlservr' >> /startup.sh

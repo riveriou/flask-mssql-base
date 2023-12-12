@@ -3,7 +3,7 @@ from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData
 
 # MSSQL CONFIGURATION
 username  = "sa" 					# default username
-password = "MSSQLpassword!"			# set in docker-compose.yml
+password = "sasa"			# set in docker-compose.yml
 host = "mssql"						# uri of host. resolves to an IP for our mssql container
 database = "tempdb"					# name of database
 
@@ -37,4 +37,4 @@ def hello():						# grab all users from 'users' and list them...
 	return str(users)				# ...and send them as our app
 
 if __name__ == "__main__":			# run test server at localhost:8080 (127.0.0.1:8080)
-	app.run(host='0.0.0.0', port=8080, debug=True)
+	app.run(host='0.0.0.0', port=8000, debug=True)

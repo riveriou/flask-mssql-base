@@ -4,7 +4,7 @@ MAINTAINER River riou
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV LANG C.UTF-8
-ENV ACCEPT_EULA N
+ENV ACCEPT_EULA Y
 ENV MSSQL_PID standard
 ENV MSSQL_SA_PASSWORD sasa
 ENV MSSQL_TCP_PORT 1433
@@ -34,7 +34,7 @@ RUN echo 'command=python3 app.py' >> /etc/supervisor/conf.d/supervisord.conf
 
 RUN echo '#!/bin/sh' >> /startup.sh
 RUN echo '/opt/mssql/bin/sqlservr' >> /startup.sh
-python app.py
+
 RUN echo 'exec supervisord -c /etc/supervisor/supervisord.conf' >> /startup.sh
 
 RUN chmod +x /startup.sh

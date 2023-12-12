@@ -1,5 +1,5 @@
 #!/bin/bash
-apt-get install -y openssh-server
+#apt-get install -y openssh-server
 
 mkdir -p /var/run/sshd
 echo 'root:root' | chpasswd

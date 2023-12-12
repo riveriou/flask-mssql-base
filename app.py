@@ -4,7 +4,7 @@ from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData
 # MSSQL CONFIGURATION
 username  = "sa" 					# default username
 password = "sasa"			# set in docker-compose.yml
-host = "mssql"						# uri of host. resolves to an IP for our mssql container
+host = "127.0.0.1"						# uri of host. resolves to an IP for our mssql container
 database = "tempdb"					# name of database
 
 engine = create_engine("mssql+pymssql://{}:{}@{}/{}".format(username, password, host, database))
